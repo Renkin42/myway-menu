@@ -1,4 +1,5 @@
 #include <gtkmm.h>
+#include <gtk-layer-shell.h>
 
 using namespace Glib;
 using namespace Gtk;
@@ -6,15 +7,15 @@ using namespace Gtk;
 class MyWayMenu : public Window {
 public:
     MyWayMenu() {
-        add(scrolledWindow);
-        scrolledWindow.add(fixed);
+        gtk_layer_init_for_window(gobj());
+        gtk_layer_set_layer(gobj(), GTK_LAYER_SHELL_LAYER_TOP);
+        gtk_layer_set_anchor(gobj(), GTK_LAYER_SHELL_EDGE_TOP, TRUE);
+        gtk_layer_set_anchor(gobj(), GTK_LAYER_SHELL_EDGE_RIGHT, TRUE);
 
         label1.set_text("Hello, World!");
-        fixed.add(label1);
-        fixed.move(label1, 5, 100);
+        add(label1);
 
         set_title("MyWay Menu");
-        resize(300, 300);
         show_all();
     }
 private:
