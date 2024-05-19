@@ -6,5 +6,5 @@ LDFLAGS=$(shell pkg-config --libs $(DEPS))
 	echo $(CC)
 	g++ -c -o $@ $< $(CFLAGS)
 
-myway-menu: main.o
+myway-menu: main.o mw-menu.o
 	g++ -o $@ $^ $(LDFLAGS)
