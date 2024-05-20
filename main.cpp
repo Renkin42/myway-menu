@@ -9,6 +9,6 @@ using namespace MW;
 
 int main(int argc, char* argv[]) {
     RefPtr<Application> application = Application::create(argc, argv);
-    MyWayMenu menu;
+    MyWayMenu menu(application);
     return application->run(menu);
 }

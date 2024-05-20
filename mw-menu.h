@@ -5,8 +5,9 @@ namespace MW
 {
     class MyWayMenu : public Gtk::Window {
         public:
-            MyWayMenu();
+            MyWayMenu(Glib::RefPtr<Gtk::Application>);
         private:
+            Glib::RefPtr<Gtk::Application> app;
             Gtk::Label label1;
     };
 }
