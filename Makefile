@@ -1,10 +1,11 @@
-DEPS=gtkmm-3.0 gtk-layer-shell-0
+CC=g++
+DEPS=gtkmm-3.0 gtk-layer-shell-0 tomlplusplus
 CFLAGS=$(shell pkg-config --cflags $(DEPS))
 LDFLAGS=$(shell pkg-config --libs $(DEPS))
 
 %.o: %.cpp
 	echo $(CC)
-	g++ -c -o $@ $< $(CFLAGS)
+	$(CC) -c -o $@ $< $(CFLAGS)
 
 myway-menu: main.o mw-menu.o
-	g++ -o $@ $^ $(LDFLAGS)
+	$(CC) -o $@ $^ $(LDFLAGS)
